@@ -1,0 +1,6 @@
+{
+  "name": "VR Hyper pulse",
+  "description": "Live streaming Bangalore community radio VR Hyper pulse 94.3 FM featuring South Indian banter, real-time Namma Bengaluru news, filter coffee debates, and vibrant background beats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Authenticated listener profile and radio permissions",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "votedTopics": { "type": "array" }
+      },
+      "required": ["displayName", "createdAt"]
+    },
+    "Topic": {
+      "title": "Topic",
+      "description": "Community proposed news story, joke prompt, or discussion segment",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "votes": { "type": "number" },
+        "submittedBy": { "type": "string" },
+        "submittedByUid": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "upvoters": { "type": "array" },
+        "downvoters": { "type": "array" }
+      },
+      "required": ["title", "category", "votes", "submittedBy", "createdAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Live community chat and on-air call-in message",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "user": { "type": "string" },
+        "uid": { "type": "string" },
+        "avatar": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "isCaller": { "type": "boolean" }
+      },
+      "required": ["text", "user", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/topics/{topicId}": {
+      "schema": "Topic",
+      "description": "Community news and joke suggestions"
+    },
+    "/chat/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Live listener chat messages"
+    }
+  }
+}
